@@ -21,3 +21,8 @@ UPDATE moon_mission
 SET operator = REPLACE(operator, ' ', '')
 WHERE operator LIKE  '% %';
 SELECT * FROM moon_mission;
+--
+-- Uppgift 4
+--
+DELETE FROM successful_mission
+WHERE launch_date >= '2010-01-01';
