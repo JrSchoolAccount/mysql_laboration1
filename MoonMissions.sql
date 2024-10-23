@@ -46,7 +46,7 @@ WHERE SUBSTRING(ssn, -2, 1) % 2 = 0
 -- Uppgift 7
 --
 SELECT CASE
-           WHEN SUBSTRING(ssn, 10, 1) % 2 = 0 THEN 'female'
+           WHEN SUBSTRING(ssn, -2, 1) % 2 = 0 THEN 'female'
            ELSE 'male'
            END                                                     AS gender,
        AVG(YEAR(CURDATE()) - (CONCAT('19', SUBSTRING(ssn, 1, 2)))) AS average_age
