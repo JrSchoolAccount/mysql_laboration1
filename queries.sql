@@ -26,3 +26,13 @@ SELECT * FROM moon_mission;
 --
 DELETE FROM successful_mission
 WHERE launch_date >= '2010-01-01';
+--
+-- Uppgift 5
+--
+SELECT *,
+       CONCAT(first_name, ' ', last_name) AS name,
+       CASE
+           WHEN MOD(SUBSTR(ssn, -2, 1), 2) = 0 THEN 'female'
+           ELSE 'male'
+           END                            AS gender
+FROM account;
