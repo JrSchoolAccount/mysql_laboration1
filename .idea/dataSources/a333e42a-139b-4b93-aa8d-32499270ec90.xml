@@ -1073,7 +1073,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
     <schema id="289" parent="1" name="laboration1">
-      <LastIntrospectionLocalTimestamp>2024-10-22.19:05:45</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-10-23.04:55:10</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="290" parent="1" name="mysql">
@@ -1118,78 +1118,122 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <column id="301" parent="299" name="user_id">
+    <table id="301" parent="289" name="successful_mission">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="302" parent="299" name="user_id">
       <AutoIncrement>44</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>smallint|0s</StoredType>
     </column>
-    <column id="302" parent="299" name="name">
+    <column id="303" parent="299" name="name">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="303" parent="299" name="password">
+    <column id="304" parent="299" name="password">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="304" parent="299" name="first_name">
+    <column id="305" parent="299" name="first_name">
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="305" parent="299" name="last_name">
+    <column id="306" parent="299" name="last_name">
       <Position>5</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="306" parent="299" name="ssn">
+    <column id="307" parent="299" name="ssn">
       <Position>6</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <index id="307" parent="299" name="PRIMARY">
+    <index id="308" parent="299" name="PRIMARY">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="308" parent="299" name="PRIMARY">
+    <key id="309" parent="299" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="309" parent="300" name="mission_id">
+    <column id="310" parent="300" name="mission_id">
       <AutoIncrement>18</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>smallint|0s</StoredType>
     </column>
-    <column id="310" parent="300" name="spacecraft">
+    <column id="311" parent="300" name="spacecraft">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="311" parent="300" name="launch_date">
+    <column id="312" parent="300" name="launch_date">
       <Position>3</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="312" parent="300" name="carrier_rocket">
+    <column id="313" parent="300" name="carrier_rocket">
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="313" parent="300" name="operator">
+    <column id="314" parent="300" name="operator">
       <Position>5</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="314" parent="300" name="mission_type">
+    <column id="315" parent="300" name="mission_type">
       <Position>6</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="315" parent="300" name="outcome">
+    <column id="316" parent="300" name="outcome">
       <Position>7</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <index id="316" parent="300" name="PRIMARY">
+    <index id="317" parent="300" name="PRIMARY">
       <ColNames>mission_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="317" parent="300" name="PRIMARY">
+    <key id="318" parent="300" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="319" parent="301" name="mission_id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>smallint|0s</StoredType>
+    </column>
+    <column id="320" parent="301" name="spacecraft">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="321" parent="301" name="launch_date">
+      <Position>3</Position>
+      <StoredType>date|0s</StoredType>
+    </column>
+    <column id="322" parent="301" name="carrier_rocket">
+      <Position>4</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="323" parent="301" name="operator">
+      <Position>5</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="324" parent="301" name="mission_type">
+      <Position>6</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="325" parent="301" name="outcome">
+      <Position>7</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <index id="326" parent="301" name="PRIMARY">
+      <ColNames>mission_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="327" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
