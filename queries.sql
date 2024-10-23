@@ -32,7 +32,13 @@ WHERE launch_date >= '2010-01-01';
 SELECT *,
        CONCAT(first_name, ' ', last_name) AS name,
        CASE
-           WHEN MOD(SUBSTR(ssn, -2, 1), 2) = 0 THEN 'female'
+           WHEN MOD(SUBSTRING(ssn, -2, 1), 2) = 0 THEN 'female'
            ELSE 'male'
            END                            AS gender
 FROM account;
+--
+-- Uppgift 6
+--
+DELETE FROM account
+WHERE SUBSTRING(ssn, -2, 1) % 2 = 0
+  AND SUBSTRING(ssn, 1, 2) < '70';
