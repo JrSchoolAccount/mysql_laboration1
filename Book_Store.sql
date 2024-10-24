@@ -13,3 +13,8 @@ CREATE TABLE author
     last_name  VARCHAR(100) NOT NULL,
     birth_date DATE
 );
+
+CREATE TABLE language (
+                          id INT AUTO_INCREMENT PRIMARY KEY,
+                          lang_name VARCHAR(50) UNIQUE NOT NULL
+);
