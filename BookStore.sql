@@ -37,11 +37,16 @@ CREATE TABLE bookstore
     city       VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE inventory (
-                           store_id INT,
-                           isbn CHAR(13),
-                           amount INT DEFAULT 0,
-                           PRIMARY KEY (store_id, isbn),
-                           FOREIGN KEY (store_id) REFERENCES bookstore(id),
-                           FOREIGN KEY (isbn) REFERENCES book(isbn)
+CREATE TABLE inventory
+(
+    store_id INT,
+    isbn     CHAR(13),
+    amount   INT DEFAULT 0,
+    PRIMARY KEY (store_id, isbn),
+    FOREIGN KEY (store_id) REFERENCES bookstore (id),
+    FOREIGN KEY (isbn) REFERENCES book (isbn)
 );
+
+INSERT INTO author (first_name, last_name, birth_date)
+VALUES ('John', 'Wick', '1964-09-12'),
+       ('Jane', 'Fonda', '1980-12-21');
