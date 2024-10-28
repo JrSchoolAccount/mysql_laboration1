@@ -50,3 +50,8 @@ CREATE TABLE inventory
 INSERT INTO author (first_name, last_name, birth_date)
 VALUES ('John', 'Wick', '1964-09-12'),
        ('Jane', 'Fonda', '1980-12-21');
+
+INSERT INTO language (lang_name)
+VALUES ('English'),
+       ('Swedish'),
+       ('Danish');
