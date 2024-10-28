@@ -55,3 +55,17 @@ INSERT INTO language (lang_name)
 VALUES ('English'),
        ('Swedish'),
        ('Danish');
+
+INSERT INTO book (isbn, title, language_id, price, publication_date)
+VALUES ('9780134685991', 'Effective Java', 1, 45.00, '2018-01-11'),
+       ('9780201633610', 'Design Patterns', 1, 50.00, '1994-02-21'),
+       ('9780195111203', 'The Catcher in the Rye', 2, 30.00, '1951-07-16');
+
+INSERT INTO bookstore (store_name, city)
+VALUES ('Book World', 'Stockholm'),
+       ('Reading Corner', 'Gothenburg');
+
+INSERT INTO inventory (store_id, isbn, amount)
+VALUES (1, '9780134685991', 10),
+       (1, '9780201633610', 5),
+       (2, '9780195111203', 3);
