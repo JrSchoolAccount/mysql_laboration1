@@ -36,3 +36,12 @@ CREATE TABLE bookstore
     store_name VARCHAR(255) NOT NULL,
     city       VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE inventory (
+                           store_id INT,
+                           isbn CHAR(13),
+                           amount INT DEFAULT 0,
+                           PRIMARY KEY (store_id, isbn),
+                           FOREIGN KEY (store_id) REFERENCES bookstore(id),
+                           FOREIGN KEY (isbn) REFERENCES book(isbn)
+);
