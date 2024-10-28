@@ -27,7 +27,9 @@ CREATE TABLE book
     language_id      INT,
     price            DECIMAL(10, 2) NOT NULL,
     publication_date DATE,
-    FOREIGN KEY (language_id) REFERENCES language (id)
+    author_id INT,
+    FOREIGN KEY (language_id) REFERENCES language (id),
+    FOREIGN KEY (author_id) REFERENCES author(id)
 );
 
 CREATE TABLE bookstore
@@ -49,17 +51,17 @@ CREATE TABLE inventory
 
 INSERT INTO author (first_name, last_name, birth_date)
 VALUES ('John', 'Wick', '1964-09-12'),
-       ('Jane', 'Fonda', '1980-12-21');
+       ('Jane', 'Fonda', '1937-12-21');
 
 INSERT INTO language (lang_name)
 VALUES ('English'),
        ('Swedish'),
        ('Danish');
 
-INSERT INTO book (isbn, title, language_id, price, publication_date)
-VALUES ('9780134685991', 'Effective Java', 1, 45.00, '2018-01-11'),
-       ('9780201633610', 'Design Patterns', 1, 50.00, '1994-02-21'),
-       ('9780195111203', 'The Catcher in the Rye', 2, 30.00, '1951-07-16');
+INSERT INTO book (isbn, title, language_id, price, publication_date, author_id)
+VALUES ('9780134685991', 'Effective Java', 1, 45.00, '2018-01-11', 1),
+       ('9780201633610', 'Design Patterns', 1, 50.00, '1994-02-21', 1),
+       ('9780195111203', 'The Catcher in the Rye', 2, 30.00, '1951-07-16', 2);
 
 INSERT INTO bookstore (store_name, city)
 VALUES ('Book World', 'Stockholm'),
@@ -69,3 +71,18 @@ INSERT INTO inventory (store_id, isbn, amount)
 VALUES (1, '9780134685991', 10),
        (1, '9780201633610', 5),
        (2, '9780195111203', 3);
+
+CREATE VIEW total_author_book_value AS
+SELECT
+    CONCAT(a.first_name, ' ', a.last_name) AS name,
+    TIMESTAMPDIFF(YEAR, a.birth_date, CURDATE()) AS age,
+    COUNT(DISTINCT b.isbn) AS book_title_count,
+    CONCAT(SUM(b.price * i.amount), ' kr') AS inventory_value
+FROM
+    author a
+        JOIN
+    book b ON a.id = b.author_id
+        JOIN
+    inventory i ON b.isbn = i.isbn
+GROUP BY
+    a.id;
