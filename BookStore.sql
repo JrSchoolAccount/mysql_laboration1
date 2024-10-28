@@ -73,16 +73,25 @@ VALUES (1, '9780134685991', 10),
        (2, '9780195111203', 3);
 
 CREATE VIEW total_author_book_value AS
-SELECT
-    CONCAT(a.first_name, ' ', a.last_name) AS name,
-    TIMESTAMPDIFF(YEAR, a.birth_date, CURDATE()) AS age,
-    COUNT(DISTINCT b.isbn) AS book_title_count,
-    CONCAT(SUM(b.price * i.amount), ' kr') AS inventory_value
-FROM
-    author a
-        JOIN
-    book b ON a.id = b.author_id
-        JOIN
-    inventory i ON b.isbn = i.isbn
-GROUP BY
-    a.id;
+SELECT CONCAT(a.first_name, ' ', a.last_name)       AS name,
+       TIMESTAMPDIFF(YEAR, a.birth_date, CURDATE()) AS age,
+       COUNT(DISTINCT b.isbn)                       AS book_title_count,
+       CONCAT(SUM(b.price * i.amount), ' kr')       AS inventory_value
+FROM author a
+         JOIN
+     book b ON a.id = b.author_id
+         JOIN
+     inventory i ON b.isbn = i.isbn
+GROUP BY a.id;
+
+CREATE USER 'dev'@'localhost' IDENTIFIED BY 'devPassword';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER
+    ON bookstore.*
+    TO 'dev'@'localhost';
+REVOKE CREATE USER, DROP, GRANT OPTION ON *.* FROM 'dev'@'localhost';
+
+CREATE USER 'web'@'localhost' IDENTIFIED BY 'webPassword';
+GRANT SELECT, INSERT, UPDATE, DELETE
+    ON bookstore.*
+    TO 'web'@'localhost';
+REVOKE CREATE, DROP, CREATE USER, GRANT OPTION ON *.* FROM 'web'@'localhost';
