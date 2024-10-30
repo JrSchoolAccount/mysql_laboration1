@@ -1,6 +1,7 @@
 --
--- Drop the existing database if it exists
+-- Drop database if it exists
 -- Create a new database
+-- with tables, sample data and users
 --
 DROP DATABASE IF EXISTS bookstore;
 CREATE DATABASE bookstore;
