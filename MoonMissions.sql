@@ -9,8 +9,8 @@ WHERE outcome = 'Successful';
 -- Uppgift 2
 --
 ALTER TABLE successful_mission
-MODIFY mission_id SMALLINT NOT NULL AUTO_INCREMENT,
-ADD PRIMARY KEY (mission_id);
+    MODIFY mission_id SMALLINT NOT NULL AUTO_INCREMENT,
+    ADD PRIMARY KEY (mission_id);
 --
 -- Uppgift 3
 --
@@ -19,12 +19,14 @@ SET operator = REPLACE(operator, ' ', '')
 WHERE operator LIKE '% %';
 UPDATE moon_mission
 SET operator = REPLACE(operator, ' ', '')
-WHERE operator LIKE  '% %';
-SELECT * FROM moon_mission;
+WHERE operator LIKE '% %';
+SELECT *
+FROM moon_mission;
 --
 -- Uppgift 4
 --
-DELETE FROM successful_mission
+DELETE
+FROM successful_mission
 WHERE launch_date >= '2010-01-01';
 --
 -- Uppgift 5
@@ -39,7 +41,8 @@ FROM account;
 --
 -- Uppgift 6
 --
-DELETE FROM account
+DELETE
+FROM account
 WHERE SUBSTRING(ssn, -2, 1) % 2 = 0
   AND SUBSTRING(ssn, 1, 2) < '70';
 --

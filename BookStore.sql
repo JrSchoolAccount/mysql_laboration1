@@ -28,9 +28,9 @@ CREATE TABLE book
     language_id      INT,
     price            DECIMAL(10, 2) NOT NULL,
     publication_date DATE,
-    author_id INT,
+    author_id        INT,
     FOREIGN KEY (language_id) REFERENCES language (id),
-    FOREIGN KEY (author_id) REFERENCES author(id)
+    FOREIGN KEY (author_id) REFERENCES author (id)
 );
 
 CREATE TABLE bookstore
