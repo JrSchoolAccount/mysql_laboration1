@@ -24,7 +24,7 @@ CREATE TABLE language
 CREATE TABLE book
 (
     isbn             CHAR(13) PRIMARY KEY,
-    title            VARCHAR(255)   NOT NULL,
+    title            VARCHAR(100)   NOT NULL,
     language_id      INT,
     price            DECIMAL(10, 2) NOT NULL,
     publication_date DATE,
@@ -36,8 +36,8 @@ CREATE TABLE book
 CREATE TABLE bookstore
 (
     id         INT AUTO_INCREMENT PRIMARY KEY,
-    store_name VARCHAR(255) NOT NULL,
-    city       VARCHAR(100) NOT NULL
+    store_name VARCHAR(50) NOT NULL,
+    city       VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE inventory
